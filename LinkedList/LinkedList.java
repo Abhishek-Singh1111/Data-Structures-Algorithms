@@ -10,6 +10,7 @@ class LinkedList{
     public Node head;
     public  Node tail;
     public static int size;
+    // adding a node in first
     public void addFirst(int data){
       Node newNode = new Node(data);
       size++;
@@ -19,15 +20,18 @@ class LinkedList{
         newNode.next = head;
         head = newNode;
     }
+     // adding a node at last
     public void addLast(int data){
-        Node newNode = new Node(data);
-        size++;
-        if(head==null){
-        head = tail=newNode;
-      }
+    Node newNode = new Node(data);
+    size++;
+    if(head == null){
+        head = tail = newNode;
+    } else {
         tail.next = newNode;
         tail = newNode;
     }
+}
+    // adding a node at middle
     public void add(int idx,int data){
        Node newNode = new Node(data);
         Node temp = head;
@@ -40,6 +44,41 @@ class LinkedList{
          temp.next=newNode;
          size++;
     }
+    // removing node from first
+public void removeFirst() {
+    if (head == null) {
+        System.out.println("LinkedList is empty");
+        return;
+    }
+    head = head.next;
+    size--;
+    if (head == null) {
+        tail = null;
+    }
+}
+    // removing node from last
+    public int removeLast(){
+    if(size == 0){
+        System.out.println("LinkedList is empty");
+        return Integer.MIN_VALUE;
+    } else if(size == 1){
+        int val = head.data;
+        head = tail = null;
+        size = 0;
+        return val;
+    }
+    Node prev = head;
+    for(int i = 0; i < size - 2; i++){
+        prev = prev.next;
+    }
+    int val = prev.next.data;
+    prev.next = null;
+    tail = prev;
+    size--;
+    return val;
+}
+    
+    // iterative search in a linkedList
     public int itrSearch(int key){
           Node temp = head;
           int i =0;
@@ -52,6 +91,7 @@ class LinkedList{
           }
           return -1;
     }
+    // reverse a linkedList from last 
     public void reverse(){
       Node pev = null;
       Node  curr = tail= head;
@@ -65,6 +105,7 @@ class LinkedList{
       }
          head = pev;
     }
+    // printing the linkedList
     public void Print(){
       Node temp = head;
       if(head==null){
@@ -85,6 +126,11 @@ class LinkedList{
       ll.addLast(9);
        ll.addLast(10);
        ll.add(2, 8);
+         ll.Print();
+         ll.removeFirst();
+        ll.Print();
+      ll.removeLast();
+      ll.Print();
       ll.reverse();
       ll.Print();
    }
