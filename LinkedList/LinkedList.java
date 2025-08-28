@@ -1,3 +1,4 @@
+
 class LinkedList{
    public class Node{
       int data;
@@ -105,8 +106,8 @@ public void removeFirst() {
       }
          head = pev;
     }
-    // printing the linkedList
-    public void Print(){
+    // printing the linkedList 
+    public void Print(){ 
       Node temp = head;
       if(head==null){
         System.out.println("No next node created");
@@ -133,5 +134,6 @@ public void removeFirst() {
       ll.Print();
       ll.reverse();
       ll.Print();
+      System.out.println(ll.itrSearch(8));
    }
 }
